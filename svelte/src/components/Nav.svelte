@@ -1,26 +1,22 @@
 <script>
    export let changeMenu;
-
-   let isShow = false;
-
-   function showDropdown() {
-      isShow = !isShow;
-   }
+   export let currentMenu;
 </script>
 
 <style>
    .navbar {
       justify-content: space-between;
-      background-color: #f1642b;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #ef482a;
       align-items: center;
-      padding-right: 30px;
-      padding-left: 30px;
+      padding: 10px;
       display: flex;
-      height: 38px;
    }
 
    .navbar__brand {
       text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.3);
+      margin-bottom: 15px;
       font-weight: bolder;
       font-size: 1.3rem;
       color: #ffffff;
@@ -31,75 +27,85 @@
       text-decoration: underline;
    }
 
-   .dropdown__button {
-      text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.3);
-      background-color: #f1642b;
-      font-family: monospace;
-      box-sizing: border-box;
-      font-weight: bolder;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
-      cursor: pointer;
+   ul {
+      width: 60%;
+      display: flex;
       color: #ffffff;
-      outline: none;
-      border: none;
+      cursor: pointer;
+      align-items: center;
+      justify-content: space-between;
    }
 
-   .dropdown__button:hover {
-      text-decoration: underline;
-   }
-
-   .dropdown__content {
-      background-color: #f1642b;
-      font-family: monospace;
-      margin-right: 110px;
-      position: absolute;
+   li {
       font-size: 18px;
-      margin-top: 6px;
-      display: none;
-      width: 160px;
-      z-index: 1;
+      font-weight: bold;
+      letter-spacing: 1.3px;
+      font-family: monospace;
    }
 
-   .dropdown__item {
-      text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      padding: 12px 16px;
-      text-align: left;
-      display: block;
-      color: #ffffff;
-      float: none;
-   }
-
-   .dropdown__item:hover {
-      cursor: pointer;
+   li:hover {
       text-decoration: underline;
    }
 
-   .show {
-      display: block;
+   @media screen and (min-width: 1000px) {
+      .navbar {
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-around;
+      }
+
+      .navbar__brand {
+         margin-bottom: 0;
+      }
+
+      ul {
+         width: 40%;
+         justify-content: space-around;
+      }
    }
 
-   @media screen and (min-width: 940px) {
-      .dropdown__content {
-         margin-left: -150px;
+   @media screen and (min-width: 1400px) {
+      ul {
+         width: 35%;
       }
+   }
+
+   @media screen and (min-width: 1700px) {
+      ul {
+         width: 27%;
+      }
+   }
+
+   .underline {
+      text-decoration: underline;
    }
 </style>
 
 <nav class="navbar">
-   <p class="navbar__brand" on:click={() => changeMenu('news')}>HACKER NEWS</p>
+   <h1
+      class="navbar__brand"
+      on:click={() => changeMenu('news')}
+      class:underline={currentMenu === 'news'}>
+      HACKER NEWS
+   </h1>
 
-   <div class="dropdown">
-      <button
-         on:click={showDropdown}
-         type="button"
-         class="dropdown__button">Menu</button>
+   <ul>
+      <li
+         on:click={() => changeMenu('new')}
+         class:underline={currentMenu === 'new'}>
+         new
+      </li>
 
-      <div class="dropdown__content" class:show={isShow}>
-         <p class="dropdown__item" on:click={() => changeMenu('new')}>/new</p>
-         <p class="dropdown__item" on:click={() => changeMenu('show')}>/show</p>
-         <p class="dropdown__item" on:click={() => changeMenu('jobs')}>/jobs</p>
-      </div>
-   </div>
+      <li
+         on:click={() => changeMenu('show')}
+         class:underline={currentMenu === 'show'}>
+         show
+      </li>
+
+      <li
+         on:click={() => changeMenu('jobs')}
+         class:underline={currentMenu === 'jobs'}>
+         jobs
+      </li>
+   </ul>
 </nav>

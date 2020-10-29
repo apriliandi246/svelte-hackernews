@@ -5,6 +5,7 @@
    import Jobs from "./components/Jobs.svelte";
    import News from "./components/News.svelte";
 
+   let showMenu = false;
    let currentMenu = "news";
 
    function changeMenu(menu) {
@@ -48,9 +49,9 @@
    }
 </style>
 
-<div class="container">
-   <Nav {changeMenu} />
+<Nav {changeMenu} {currentMenu} />
 
+<div class="container">
    <div class="data-container">
       {#if currentMenu === 'news'}
          <News />
