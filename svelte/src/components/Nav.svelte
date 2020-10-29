@@ -27,6 +27,10 @@
       cursor: pointer;
    }
 
+   .navbar__brand:hover {
+      text-decoration: underline;
+   }
+
    .dropdown__button {
       text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.3);
       background-color: #f1642b;
