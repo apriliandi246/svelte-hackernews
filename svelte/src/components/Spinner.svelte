@@ -15,6 +15,12 @@
       border-bottom-color: #38444d;
       animation: spinner 1s linear infinite;
    }
+
+   @keyframes spinner {
+      to {
+         transform: rotate(360deg);
+      }
+   }
 </style>
 
 <div class="spinner-2" />
