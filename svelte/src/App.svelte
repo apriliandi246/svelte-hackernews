@@ -1,30 +1,65 @@
 <script>
-	export let name;
+   import Nav from "./components/Nav.svelte";
+   import New from "./components/New.svelte";
+   import Show from "./components/Show.svelte";
+   import Jobs from "./components/Jobs.svelte";
+   import News from "./components/News.svelte";
+
+   let currentMenu = "news";
+
+   function changeMenu(menu) {
+      currentMenu = menu;
+   }
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+   .container {
+      width: 100%;
+      margin: 0 auto;
+   }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+   .data-container {
+      background-color: #f6f6ef;
+      padding: 27px 14px;
+   }
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+   @media screen and (min-width: 940px) {
+      .container {
+         width: 90%;
+      }
+   }
+
+   @media screen and (min-width: 1020px) {
+      .container {
+         width: 85%;
+      }
+   }
+
+   @media screen and (min-width: 1270px) {
+      .container {
+         width: 76%;
+      }
+   }
+
+   @media screen and (min-width: 1570px) {
+      .container {
+         width: 70%;
+      }
+   }
 </style>
+
+<div class="container">
+   <Nav {changeMenu} />
+
+   <div class="data-container">
+      {#if currentMenu === 'news'}
+         <News />
+      {:else if currentMenu === 'new'}
+         <New />
+      {:else if currentMenu === 'show'}
+         <Show />
+      {:else if currentMenu === 'jobs'}
+         <Jobs />
+      {/if}
+   </div>
+</div>
