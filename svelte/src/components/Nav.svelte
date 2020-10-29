@@ -1,5 +1,6 @@
 <script>
    export let changeMenu;
+
    let isShow = false;
 
    function showDropdown() {
@@ -38,6 +39,10 @@
       color: #ffffff;
       outline: none;
       border: none;
+   }
+
+   .dropdown__button:hover {
+      text-decoration: underline;
    }
 
    .dropdown__content {

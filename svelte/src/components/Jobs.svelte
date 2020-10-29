@@ -1,12 +1,19 @@
 <script>
-   import { onMount } from "svelte";
+   import { onDestroy, onMount } from "svelte";
    import Spinner from "./Spinner.svelte";
 
    let jobs;
+   const controller = new AbortController();
 
    onMount(async () => {
-      const res = await fetch("https://node-hnapi.herokuapp.com/jobs");
+      const res = await fetch("https://node-hnapi.herokuapp.com/jobs", {
+         signal: controller.signal,
+      });
       jobs = await res.json();
+   });
+
+   onDestroy(() => {
+      controller.abort();
    });
 </script>
 
