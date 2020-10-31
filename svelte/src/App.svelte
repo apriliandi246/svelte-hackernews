@@ -1,11 +1,10 @@
 <script>
-   import Nav from "./components/Nav.svelte";
-   import New from "./components/New.svelte";
-   import Show from "./components/Show.svelte";
-   import Jobs from "./components/Jobs.svelte";
-   import News from "./components/News.svelte";
+   import Nav from "./components/Nav/index.svelte";
+   import New from "./components/New/index.svelte";
+   import Show from "./components/Show/index.svelte";
+   import Jobs from "./components/Jobs/index.svelte";
+   import News from "./components/News/index.svelte";
 
-   let showMenu = false;
    let currentMenu = "news";
 
    function changeMenu(menu) {
@@ -59,7 +58,7 @@
          <New />
       {:else if currentMenu === 'show'}
          <Show />
-      {:else if currentMenu === 'jobs'}
+      {:else}
          <Jobs />
       {/if}
    </div>

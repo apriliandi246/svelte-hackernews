@@ -1,7 +1,7 @@
 <script>
    import { onDestroy, onMount } from "svelte";
-   import Data from "./Data.svelte";
-   import Spinner from "./Spinner.svelte";
+   import Data from "../shared/Data.svelte";
+   import Spinner from "../shared/Spinner.svelte";
 
    let allNew;
    const controller = new AbortController();

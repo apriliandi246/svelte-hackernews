@@ -1,6 +1,6 @@
 <script>
    import { onDestroy, onMount } from "svelte";
-   import Spinner from "./Spinner.svelte";
+   import Spinner from "../shared/Spinner.svelte";
 
    let jobs;
    const controller = new AbortController();
