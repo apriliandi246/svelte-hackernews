@@ -1,40 +1,47 @@
 <script>
-	export let status;
-	export let error;
+   export let status;
+   export let error;
 
-	const dev = process.env.NODE_ENV === 'development';
+   const dev = process.env.NODE_ENV === "development";
 </script>
 
 <style>
-	h1, p {
-		margin: 0 auto;
-	}
+   h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 4px;
+      font-family: monospace;
+   }
 
-	h1 {
-		font-size: 2.8em;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+   p {
+      font-size: 20px;
+      padding-bottom: 135px;
+      font-family: monospace;
+   }
 
-	p {
-		margin: 1em auto;
-	}
+   main {
+      margin-top: 100px;
+      text-align: center;
+   }
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+   @media (min-width: 480px) {
+      h1 {
+         font-size: 4em;
+      }
+   }
 </style>
 
 <svelte:head>
-	<title>{status}</title>
+   <title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<main>
+   <h1>{status}</h1>
 
-<p>{error.message}</p>
+   <p>{error.message}</p>
 
-{#if dev && error.stack}
-	<pre>{error.stack}</pre>
-{/if}
+   {#if dev && error.stack}
+      <pre>{error.stack}</pre>
+   {/if}
+</main>
