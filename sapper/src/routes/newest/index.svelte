@@ -8,8 +8,10 @@
 </script>
 
 <script>
-   import New from "../../components/Newest/index.svelte";
+   import Data from "../../components/Data.svelte";
    export let allNew;
 </script>
 
-<New {allNew} />
+{#each allNew as newest (newest.id)}
+   <Data data={newest} />
+{/each}

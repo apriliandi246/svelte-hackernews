@@ -8,8 +8,10 @@
 </script>
 
 <script>
-   import News from "../components/News/index.svelte";
+   import Data from "../components/Data.svelte";
    export let allNews;
 </script>
 
-<News {allNews} />
+{#each allNews as news (news.id)}
+   <Data data={news} />
+{/each}

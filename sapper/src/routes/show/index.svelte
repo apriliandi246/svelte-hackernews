@@ -8,8 +8,10 @@
 </script>
 
 <script>
-   import Show from "../../components/Show/index.svelte";
+   import Data from "../../components/Data.svelte";
    export let allShow;
 </script>
 
-<Show {allShow} />
+{#each allShow as show (show.id)}
+   <Data data={show} />
+{/each}
