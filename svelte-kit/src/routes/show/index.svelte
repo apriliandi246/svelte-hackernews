@@ -8,7 +8,7 @@
 </script>
 
 <script>
-   import Data from "../../components/Data.svelte";
+   import Data from "$components/Data.svelte";
    export let allShow;
 </script>
 
